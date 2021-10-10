@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title%}صفحه اصلی{% endblock %}
+
+{% block content %}
+
+    <section class="container-lg container-lg mt-5">
+        <div class="d-lg-flex d-md-flex flex-lg-wrap flex-md-wrap w-100">
+            {% for product in products %}
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 p-5">
+                <div class="shop-content-container">
+                    <div class="img-container">
+                        <img src="media/{{ product.image }}" alt="">
+                    </div>
+                    <div class="title mt-2">
+                        <h3>{{ product.name }}</h3>
+                        <span style="color: gray; font-weight: 100; padding: 16px 0px;">دسته بندی:‌
+                        {% if product.category.name == "Pant" %}
+                            شلوار
+                            {% elif product.category.name ==  "Shirt" %}
+                            پیراهن
+                        {% endif %}
+                        </span>
+                    </div>
+                    <div class="btn-container">
+                        <button class="btn btn-outline-primary">افزودن به سبد خرید</button>
+                        <a href="" class="btn btn-danger">مشاهده محصول</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+{% endblock %}
