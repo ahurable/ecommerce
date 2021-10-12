@@ -23,7 +23,7 @@
                         </span>
                     </div>
                     <div class="btn-container">
-                        <button class="btn btn-outline-primary">افزودن به سبد خرید</button>
+                        <a href="{% url 'add_to_cart_url' id=product.id %}" class="btn btn-outline-primary">افزودن به سبد خرید</a>
                         <a href="{% url 'product_detail_url' id=product.id %}" class="btn btn-danger">مشاهده محصول</a>
                     </div>
                 </div>

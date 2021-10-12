@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}something{% endblock  %}
+{% block title %}{{ product.name }}{% endblock  %}
 
 {% block content %}
     <div class="mt-5 pt-5 shop-detail-content container-lg container-fluid">
@@ -11,10 +11,17 @@
             <div class="col-lg-8 col-md-8 col-sm-12 col-12 p-3">
                 <h1>{{ product.name }}</h1>
                 <p>{{ product.description }}</p>
-                <div class="btn-container mt-5 pt-4">
-                    <button class="btn btn-outline-primary">افزودن به سبد خرید</button>
+                <div class="btn-container mt-5 pt-4 d-flex">
+                    <div class="px-3">
+                        <form id="quantityForm" action='{% url 'add_to_cart_url'  id=product.id %}' method="post">
+                            {% csrf_token %}
+                            {{ add_to_cart_form }}
+                            <button id="subId" onclick="" class="btn btn-danger">افزودن به سبد خرید</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    </script>
 {% endblock  %}

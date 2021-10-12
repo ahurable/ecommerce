@@ -14,17 +14,16 @@ class Cart(object):
             cart = self.session[settings.CART_SESSION_KEY] = {}
         self.cart = cart
 
-    # we defined a iterator to add the product attribute to each item that we add
+    # when we iterate accross the class the below generator will be called
     def __iter__(self):
         
         product_ids = self.cart.keys()
         products = Product.objects.filter(id__in = product_ids)
-        cart = self.cart.copy()
 
         for product in products:
-            cart[str(product.id)]['product'] = product
+            self.cart[str(product.id)]['product'] = product
 
-        for item in cart.values():
+        for item in self.cart.values():
             item['price'] = Decimal(item['price'])
             item['total_price'] = item['price'] * item['quantity']
             yield item
@@ -57,7 +56,8 @@ class Cart(object):
         
         self.save()
 
-
+    def print_it(self):
+        return self.cart
     
     def remove(self, product):
 
