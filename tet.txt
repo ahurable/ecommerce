@@ -1,0 +1,20 @@
+<h1>Hell(o) World!</h1>
+You may ask yourself who the hell is that guy, but stop there.
+<br>
+Before all, how is that to get familiar with me? huh?
+<h3>Here is your dude</h3>
+My name is ahoora but as a programmer, you can find me on social media with ```krypton``` and don't ask me why I chose that name because I still don't know what to say as an answer to that part of people. helll! just calm down bro, and let me finish.
+<hr>
+<h3>What do you do for life ahoora?</h3>
+Honestly I work on little projects and do nothing for my life yet! :D <br>
+what do you expect from a 19 yo guy whose lives in somewhere without even a programming company?<br>So I used my time to learn more about programming, frameworks and libraries because I'm interested in those kinds of stuff.
+<hr>
+<h3>Tell me about your skills</h3>
+<p>here you can see a bunch of things that I work on</p>
+<em><b>Languages:</b></em> <i>Python</i>, <i>JavaScript</i>, <i>php</i><br>
+<em><b>Frameworks/Libraries:</b></em> <i>Django (a python based framework used for back-end development)</i>, <i>React JS (a free and open-source front-end javascript library</i><br>
+<em><b>Other: </b></em> <em>Exprienced in working with Adobe Premiere Pro, Adobe Photoshop, and Adobe After Effects</em>
+<!---
+kryptwon/kryptwon is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->

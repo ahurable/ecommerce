@@ -13,7 +13,7 @@
                         <img src="media/{{ product.image }}" alt="">
                     </div>
                     <div class="title mt-2">
-                        <h3>{{ product.name }}</h3>
+                        <h4>{{ product.name|truncatechars:24 }}</h4>
                         <span style="color: gray; font-weight: 100; padding: 16px 0px;">دسته بندی:‌
                         {% if product.category.name == "Pant" %}
                             شلوار
@@ -24,7 +24,7 @@
                     </div>
                     <div class="btn-container">
                         <button class="btn btn-outline-primary">افزودن به سبد خرید</button>
-                        <a href="" class="btn btn-danger">مشاهده محصول</a>
+                        <a href="{% url 'product_detail_url' id=product.id %}" class="btn btn-danger">مشاهده محصول</a>
                     </div>
                 </div>
             </div>

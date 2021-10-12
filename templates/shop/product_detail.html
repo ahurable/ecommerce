@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}something{% endblock  %}
+
+{% block content %}
+    <div class="mt-5 pt-5 shop-detail-content container-lg container-fluid">
+        <div class="d-lg-flex d-md-flex">
+            <div class="img-container col-lg-4 col-md-4 col-sm-12 col-12">
+                <img src="/media/{{ product.image }}" alt="" srcset="">
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-12 p-3">
+                <h1>{{ product.name }}</h1>
+                <p>{{ product.description }}</p>
+                <div class="btn-container mt-5 pt-4">
+                    <button class="btn btn-outline-primary">افزودن به سبد خرید</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock  %}
