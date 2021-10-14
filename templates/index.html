@@ -5,15 +5,15 @@
 {% block content %}
 
     <section class="container-lg container-lg mt-5">
-        <div class="d-lg-flex d-md-flex flex-lg-wrap flex-md-wrap w-100">
+        <div class="d-lg-flex d-md-flex flex-lg-wrap flex-md-wrap col-lg-8 col-md-8 col-sm-12 col-12">
             {% for product in products %}
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12 p-5">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 p-1">
                 <div class="shop-content-container">
                     <div class="img-container">
                         <img src="media/{{ product.image }}" alt="">
                     </div>
                     <div class="title mt-2">
-                        <h4>{{ product.name|truncatechars:24 }}</h4>
+                        <h5 style="font-weight: 800;">{{ product.name|truncatechars:24 }}</h5>
                         <span style="color: gray; font-weight: 100; padding: 16px 0px;">دسته بندی:‌
                         {% if product.category.name == "Pant" %}
                             شلوار
@@ -21,10 +21,19 @@
                             پیراهن
                         {% endif %}
                         </span>
+                        <br>
+                        <span>
+                            قیمت: {{ product.price }} تومان
+                        </span>
                     </div>
+                    <br>
                     <div class="btn-container">
-                        <a href="{% url 'add_to_cart_url' id=product.id %}" class="btn btn-outline-primary">افزودن به سبد خرید</a>
-                        <a href="{% url 'product_detail_url' id=product.id %}" class="btn btn-danger">مشاهده محصول</a>
+                        <form method="post" class="text-center" action="{% url 'add_to_cart_url' id=product.id %}">
+                            {% csrf_token %}
+                            <input type="submit" class="btn btn-primary" value="افزودن به سبد">
+                            
+                        <a href="{% url 'product_detail_url' id=product.id %}" class="btn btn-outline-danger border-0">مشاهده محصول</a>
+                        </form>
                     </div>
                 </div>
             </div>

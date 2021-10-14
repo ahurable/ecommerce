@@ -3,25 +3,27 @@
 body {
     font-family: iranyekan !important;
     direction: rtl;
+    background-color: #141414;
+    color: white;
 }
 
-.shop-content-container:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 4px 28px #303030;
+.border,* {
+    border-color: #292929 !important
+}
+
+.navbar-dark, .txt-search {
+    background-color: #141414 !important;
+    color: rgb(199, 199, 199) !important;
 }
 
 .navbar-brand {
     font-weight: 600;
 }
 
-.navbar-d * {
-    color: white;
-}
-
 .txt-search {
     border-radius: 50px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
     margin-left: 0px !important;
 }
 .btn-search {
@@ -48,7 +50,7 @@ body {
 
 .shop-content-container:hover {
     transform: scale(1.02);
-    box-shadow: 0px 4px 28px #dedede;
+    box-shadow: 0px 4px 28px #313131;
     transition: all 0.1s;
 }
 
@@ -59,4 +61,5 @@ body {
 
 .btn {
     border-radius: 0px;
+    font-weight: 300;
 }
