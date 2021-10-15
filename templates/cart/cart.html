@@ -17,7 +17,7 @@
     {% with product=item.product %}
   <div class="p-4 mt-2 border">
     <h1>{{ product.name }}</h1>
-    <p><span class="mx-3">قیمت: {{ item.price }}</span></p>
+    <p><span class="mx-3">قیمت: {{ item.price }}</span><span>قیمت کل: {{ item.total_price }}</span></p>
     <div class="d-flex">
       <form class="w-50" action="{% url 'remove_from_cart_url' product_id=product.id %}" method="post">
         {% csrf_token %}
@@ -33,7 +33,14 @@
   {% endwith %}
   {% endfor %}
   <div class="p-4 mt-2 border">
-  {{ item.total_price }}
+    <div class="row">
+      <div class="col-6">
+        قیمت کل : {{ total_price }} 
+      </div>
+      <div class="col-6">
+        <a href="" class="btn btn-lg btn-secondary">ادامه جهت تسویه حساب</a>
+      </div>
+    </div>
   </div>
   {% else %}<div class="p-4 mt-2 border">
   <CENTER><h1>سبد خرید شما خالی است</h1>

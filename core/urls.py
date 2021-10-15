@@ -17,17 +17,20 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import IndexView
+from .views import IndexView, LoginView, LogoutView, RegisterView
 from .test import printit
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name="home_url"),
+    path('login/', LoginView, name="login_url"),
+    path('register', RegisterView, name="register_url"),
+    path('logout/', LogoutView, name="logout_url"),
     path('shop/', include('shop.urls')),
     path('cart/', include('cart.urls')),
-    # path('test/', printit, name="test_url")
 ]
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

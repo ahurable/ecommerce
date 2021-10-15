@@ -49,4 +49,5 @@ def RemoveFromCart(request, product_id):
 
 def CartDetail(request):
     cart = Cart(request)
-    return render(request, 'cart/cart.html', {'cart': cart})
+    total_price = cart.get_total_price()
+    return render(request, 'cart/cart.html', {'cart': cart, 'total_price': total_price})

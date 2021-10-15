@@ -6,12 +6,12 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/fontawesome/css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.dark.css' %}">
 </head>
 <body>
 <!-- start header -->
 
-<nav class="navbar navbar-light navbar-expand-lg">
+<nav class="navbar navbar-dark navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">فروشگاه آنلاین</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,20 +28,27 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'cart_detail_url' %}">سبد خرید</a>
         </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout_url' %}">خروج از حساب کاربری</a>
+        </li>
+        {% else %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             احراز هویت
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" href="#">ثبت نام در سایت</a></li>
+            <li><a class="dropdown-item" href="{% url 'register_url' %}">ثبت نام در سایت</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">ورود به سایت</a></li>
+            <li><a class="dropdown-item" href="{% url 'login_url' %}">ورود به سایت</a></li>
+            <li><hr class="dropdown-divider"></li>
           </ul>
         </li>
+        {% endif %}
       </ul>
       <form class="d-flex">
-        <input class="form-control txt-search text-black-50 me-2" type="search" placeholder="دنبال چیزی میگردید؟" aria-label="جستجو">
-        <button class="btn btn-success btn-search" type="submit"><img src="/media/img/search.png" style="width:28px;"/></button>
+        <input class="txt-search text-black-50 me-2" type="search" placeholder="دنبال چیزی میگردید؟" aria-label="جستجو">
+        <button class="btn-search" type="submit"><img src="/media/img/search.png" style="width:28px;"/></button>
       </form>
     </div>
   </div>
@@ -53,6 +60,13 @@
         <p>سعی کنید پس از خرید و دریافت محصول مورد نظر با نظرات خود از ما حمایت کنید</p>
     </div>
     <hr>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{  message.extra_tags }}">
+          {{ message.message }}
+        </div>
+      {% endfor %}
+    {% endif %}
 </div>
 <!-- end header -->
 <!-- start content -->

@@ -3,17 +3,25 @@
 body {
     font-family: iranyekan !important;
     direction: rtl;
-    background-color: #141414;
+    background-color: #1A202C;
     color: white;
 }
 
 .border,* {
-    border-color: #292929 !important
+    border-color: #171d27 !important
+}
+.navbar-dark{
+    border-color: #171d27 !important
+}
+.txt-search, .btn-search, .form-control {
+    background-color: #20283a !important;
+    color: rgb(199, 199, 199) !important;
+    border: none;
 }
 
-.navbar-dark, .txt-search {
-    background-color: #141414 !important;
-    color: rgb(199, 199, 199) !important;
+.txt-search, .btn-search {
+    outline: none !important;
+    padding: 6px 10px;
 }
 
 .navbar-brand {
@@ -49,8 +57,7 @@ body {
 }
 
 .shop-content-container:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 4px 28px #313131;
+    transform: scale(1.01);
     transition: all 0.1s;
 }
 
@@ -62,4 +69,9 @@ body {
 .btn {
     border-radius: 0px;
     font-weight: 300;
+}
+
+.btn-login {
+    background-color:rgb(34, 55, 90);
+    border: 0px;
 }
