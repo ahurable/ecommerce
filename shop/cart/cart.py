@@ -1,5 +1,5 @@
 from decimal import Decimal
-from cart.forms import AddToCartForm
+from shop.cart.forms import AddToCartForm
 from shop.models import Product
 from django.conf import settings
 
@@ -38,6 +38,11 @@ class Cart(object):
 
         return sum(item['quantity'] for item in self.cart.values())
 
+    def get_len_of_whole(self):
+        n = 0
+        for i in self.cart.keys():
+            n += 1
+        return n
 
 
     def get_total_price(self):

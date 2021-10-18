@@ -3,6 +3,15 @@
 {% block title%}صفحه اصلی{% endblock %}
 
 {% block content %}
+    <div class="container-lg container-md container-fluid">
+      <div class="col-12 p-5 text-center">
+      {% if cart_len > 0 %}
+        <h4 id="cartShower">شما {{ cart_len }} آیتم در سبد خرید خود دارید <a href="{% url 'cart_detail_url' %}">مشاهده سبد خرید و ادامه برای پرداخت</a> گزینه های انتخاب شده.</h4>
+      {% else %}
+        <h4 id="cartShower">هیچ آیتمی در سبد خرید خود ندارید</h4>
+      {% endif %}
+      </div>
+    </div>
 
     <section class="container-lg container-lg mt-5">
         <div class="d-lg-flex d-md-flex flex-lg-wrap flex-md-wrap col-lg-8 col-md-8 col-sm-12 col-12">
@@ -28,17 +37,31 @@
                     </div>
                     <br>
                     <div class="btn-container">
-                        <form method="post" class="text-center" action="{% url 'add_to_cart_url' id=product.id %}">
-                            {% csrf_token %}
-                            <input type="submit" class="btn btn-primary" value="افزودن به سبد">
-                            
-                        <a href="{% url 'product_detail_url' id=product.id %}" class="btn btn-outline-danger border-0">مشاهده محصول</a>
-                        </form>
+                        <div id="addToForm" class="text-center" >
+                            <input type="submit" class="btn btn-primary" onclick="addToCart('{% url 'add_to_cart_url' id=product.id %}')" value="افزودن به سبد">
+                            <a href="{% url 'product_detail_url' id=product.id %}" class="btn btn-outline-danger border-0">مشاهده محصول</a>
+                        </div>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
     </section>
+
+{% endblock %}
+
+    
+
+{% block 'js' %}
+  console.log('itsok')
+  function addToCart(url) {
+      console.log(String(url))
+      fetch(String(url))
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('cartShower').innerHTML = data.say;
+            console.log('done')
+        })
+  }
 
 {% endblock %}

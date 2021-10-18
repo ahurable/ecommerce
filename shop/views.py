@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.views.generic import View
-from cart.forms import AddToCartForm
+from shop.cart.forms import AddToCartForm
 from .models import Product
 # Create your views here.
 

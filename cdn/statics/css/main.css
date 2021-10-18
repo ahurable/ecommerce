@@ -60,3 +60,10 @@ body {
 .btn {
     border-radius: 0px;
 }
+@media only screen and (min-width: 1200px) {
+    #seachIcon {
+        position: absolute !important;
+        top: 20px !important;
+        left: 26px !important;
+    }
+}

@@ -27,7 +27,7 @@ urlpatterns = [
     path('register', RegisterView, name="register_url"),
     path('logout/', LogoutView, name="logout_url"),
     path('shop/', include('shop.urls')),
-    path('cart/', include('cart.urls')),
+    path('cart/', include('shop.cart.urls')),
 ]
 
 if settings.DEBUG:

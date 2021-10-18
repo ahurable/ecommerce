@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.messages import success, error
 from .forms import LoginForm, RegisterForm
 
-
 User = get_user_model
 
 

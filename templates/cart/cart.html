@@ -35,10 +35,14 @@
   <div class="p-4 mt-2 border">
     <div class="row">
       <div class="col-6">
-        قیمت کل : {{ total_price }} 
+        قیمت کل : {{ total_price }}
       </div>
-      <div class="col-6">
-        <a href="" class="btn btn-lg btn-secondary">ادامه جهت تسویه حساب</a>
+      <div class="col-6" >
+        {% if not request.user.is_authenticated %}
+          <p>برای تسویه حساب وارد حساب کاربری خود شوید</p>
+        {% endif %}
+        <p></p>
+        <button class="btn btn-lg btn-secondary" {% if not user.is_authenticated %} onclick="showLoginRequiredMessage()" disabled {% else %} onclick="redirectToBill()" {% endif %}>ادامه جهت تسویه حساب</button>
       </div>
     </div>
   </div>
@@ -49,5 +53,11 @@
   {% endif %}
 </div>
 
+
+{% endblock %}
+
+{% block 'js' %}
+  
+  product_id
 
 {% endblock %}

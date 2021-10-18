@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.dark.css' %}">
 </head>
@@ -48,7 +48,7 @@
       </ul>
       <form class="d-flex">
         <input class="txt-search text-black-50 me-2" type="search" placeholder="دنبال چیزی میگردید؟" aria-label="جستجو">
-        <button class="btn-search" type="submit"><img src="/media/img/search.png" style="width:28px;"/></button>
+        <button class="btn-search" type="submit"><span><i class="fas fa-search" id="searchIcon"></i></span></button>
       </form>
     </div>
   </div>
@@ -59,6 +59,7 @@
         <h1>به فروشگاه آنلاین ما خوش آمدید</h1>
         <p>سعی کنید پس از خرید و دریافت محصول مورد نظر با نظرات خود از ما حمایت کنید</p>
     </div>
+    
     <hr>
     {% if messages %}
       {% for message in messages %}
@@ -84,5 +85,12 @@
 </footer>
 <!-- end footer -->
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'fontawesome/js/all.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script>
+  {% block 'js' %}
+
+  {% endblock %}
+</script>
 </body>
 </html>
