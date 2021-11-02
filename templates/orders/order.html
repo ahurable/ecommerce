@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block title %}ثبت سفارش{% endblock %}
+
+{% block content %}
+
+  <div class="container-lg container-md container-fluid">
+    <div class="justify-content-center d-flex">
+      <form method="post" class="col-4">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-grid">
+          <input type="submit" value="ثبت سفارش" class="btn btn-login btn-lg text-white my-4 rounded-1 btn-block">
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

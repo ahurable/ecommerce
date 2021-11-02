@@ -26,6 +26,7 @@ class Cart(object):
             cart[str(product.id)]['product'] = product
         
         for item in cart.values():
+            item['product_id'] = int(item['product_id'])
             item['quantity'] = Decimal(item['quantity']) - 1
             item['price'] = Decimal(item['price'])
             item['total_price'] = item['price'] * item['quantity']
@@ -57,7 +58,7 @@ class Cart(object):
         quantity = quantity
 
         if product_id not in self.cart:
-            self.cart[product_id] = {'quantity': '0', 'price': str(product.price)}
+            self.cart[product_id] = {'product_id': str(product_id), 'quantity': '0', 'price': str(product.price)}
         if override_quantity:
             self.cart[product_id]['quantity'] = quantity + 1
         else:
